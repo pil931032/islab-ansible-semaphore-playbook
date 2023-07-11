@@ -6,7 +6,6 @@
     - name: update apt packages and install GPG
       apt:
         update_cache: yes
-        upgrade: yes
         pkg:
           - ca-certificates
           - curl
