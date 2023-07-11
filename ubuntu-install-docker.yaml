@@ -1,0 +1,33 @@
+---
+- hosts: all
+
+  become: true
+  tasks:
+    - name: update apt packages and install GPG
+      apt:
+        update_cache: yes
+        upgrade: yes
+        pkg:
+          - ca-certificates
+          - curl
+          - gnupg
+        state: latest
+    - name: Add Docker GPG apt Key
+      apt_key:
+        url: https://download.docker.com/linux/ubuntu/gpg
+        state: present
+
+    - name: Add Docker Repository
+      apt_repository:
+        repo: deb https://download.docker.com/linux/ubuntu jammy stable
+        state: present
+
+    - name: Update apt and install docker-ce
+      apt:
+        update_cache: true
+        pkg:
+          - docker-ce
+          - docker-ce-cli
+          - containerd.io
+          - docker-buildx-plugin
+          - docker-compose-plugin
