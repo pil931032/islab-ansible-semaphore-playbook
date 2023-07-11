@@ -1,9 +1,8 @@
 ---
-- hosts: all
+- name: ping module demo
+  hosts: all
+  become: false
 
-  become: true
   tasks:
-    - name: update apt packages
-      apt:
-        upgrade: yes
-        update_cache: yes
+    - name: test connection
+      ansible.builtin.ping:
