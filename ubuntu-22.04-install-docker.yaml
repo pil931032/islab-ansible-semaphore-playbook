@@ -4,13 +4,7 @@
   become: true
   tasks:
     - name: update apt packages and install GPG
-      apt:
-        update_cache: yes
-        pkg:
-          - ca-certificates
-          - curl
-          - gnupg
-        state: latest
+      command: apt-get update && apt-get install ca-certificates curl gnupg
     - name: Add Docker GPG apt Key
       apt_key:
         url: https://download.docker.com/linux/ubuntu/gpg
