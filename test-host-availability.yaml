@@ -1,5 +1,4 @@
 ---
-- name: ping module demo
   hosts: all
   become: false
 
