@@ -5,5 +5,4 @@
   gather_facts: no
   tasks:
     - name: Print version
-      debug:
-        msg: "{{ Hi }}"
+      command: echo
