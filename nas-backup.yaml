@@ -53,3 +53,4 @@
       command: "docker compose up -d"
       args:
         chdir: /mnt/sdb1/nextcloud
+      ignore_errors: true
