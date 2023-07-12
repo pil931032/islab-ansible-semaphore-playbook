@@ -1,7 +1,15 @@
 ---
-- hosts: all
+- hosts: main
   become: true
   
   tasks:
     - name: Zip the NextCloud File
       command: "tar cvf /mnt/sdb1/nextcloud.backup.ansible.tar /mnt/sdb1/nextcloud"
+
+- hosts: backup
+  tasks:
+    - name: Transfer file from ServerA to ServerB
+      synchronize:
+        src: /mnt/sdb1/nextcloud.backup.ansible.tar
+        dest: /mnt/sda1/nextcloud.backup.ansible.tar
+      delegate_to: main
