@@ -6,4 +6,4 @@
   tasks:
     - name: Print version
       debug:
-        msg: "{{Hi}}"
+        msg: "{{ Hi }}"
