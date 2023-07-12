@@ -4,4 +4,4 @@
   
   tasks:
     - name: Zip the NextCloud File
-      command: "tar cvf nextcloud.backup.ansible.tar /mnt/sdb1/nextcloud"
+      command: "tar cvf /mnt/sdb1/nextcloud.backup.ansible.tar /mnt/sdb1/nextcloud"
