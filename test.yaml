@@ -6,4 +6,4 @@
   tasks:
     - name: Print version
       debug:
-        msg: "Ansible Version: {{ ansibleVersion.stdout }}"
+        msg: "Hi"
