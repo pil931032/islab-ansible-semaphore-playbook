@@ -9,7 +9,4 @@
   become: true
   tasks:
     - name: Transfer file from ServerA to ServerB
-      synchronize:
-        src: /mnt/sdb1/nextcloud.backup.ansible.tar
-        dest: /mnt/sda1/nextcloud.backup.ansible.tar
-      delegate_to: main
+      command: "scp islab@main:/mnt/sdb1/nextcloud.backup.ansible.tar /mnt/sdb1/nextcloud.backup.ansible.tar"
