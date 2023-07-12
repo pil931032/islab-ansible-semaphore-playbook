@@ -1,51 +1,53 @@
 ---
-- hosts: main
-  become: true  
-  tasks:
-    - name: Zip the NextCloud File
-      command: "tar cvf /mnt/sdb1/nextcloud.backup.ansible.tar /mnt/sdb1/nextcloud"
+# - hosts: main
+#   become: true  
+#   tasks:
+#     - name: Zip the NextCloud File
+#       command: "tar cvf /mnt/sdb1/nextcloud.backup.ansible.tar /mnt/sdb1/nextcloud"
       
-- hosts: backup
-  become: true  
-  tasks:
-    - name: Try to stop server
-      command: "docker compose -f /mnt/sdb1/nextcloud/docker-compose.yml down "
-      ignore_errors: true
+# - hosts: backup
+#   become: true  
+#   tasks:
+#     - name: Try to stop server
+#       command: "docker compose -f /mnt/sdb1/nextcloud/docker-compose.yml down "
+#       ignore_errors: true
       
-- hosts: backup
-  become: true  
-  tasks:
-    - name: Try to delete file
-      command: "rm /mnt/sdb1/nextcloud.backup.ansible.tar"
-      command: "rm -rf /mnt/sdb1/nextcloud"
-      ignore_errors: true
+# - hosts: backup
+#   become: true  
+#   tasks:
+#     - name: Try to delete file
+#       command: "rm /mnt/sdb1/nextcloud.backup.ansible.tar"
+#       command: "rm -rf /mnt/sdb1/nextcloud"
+#       ignore_errors: true
       
-- hosts: backup
-  become: true
-  tasks:
-    - name: Transfer file from ServerA to ServerB
-      command: "rsync -avzh islab@10.18.173.10:/mnt/sdb1/nextcloud.backup.ansible.tar /mnt/sdb1/nextcloud.backup.ansible.tar"
+# - hosts: backup
+#   become: true
+#   tasks:
+#     - name: Transfer file from ServerA to ServerB
+#       command: "rsync -avzh islab@10.18.173.10:/mnt/sdb1/nextcloud.backup.ansible.tar /mnt/sdb1/nextcloud.backup.ansible.tar"
 
-- hosts: main
-  become: true  
-  tasks:
-    - name: Delete zip file on main server
-      command: "rm /mnt/sdb1/nextcloud.backup.ansible.tar"
+# - hosts: main
+#   become: true  
+#   tasks:
+#     - name: Delete zip file on main server
+#       command: "rm /mnt/sdb1/nextcloud.backup.ansible.tar"
 
-- hosts: backup
-  become: true
-  tasks:
-    - name: Unzip file
-      command: "tar xvf /mnt/sdb1/nextcloud.backup.ansible.tar -C /"
+# - hosts: backup
+#   become: true
+#   tasks:
+#     - name: Unzip file
+#       command: "tar xvf /mnt/sdb1/nextcloud.backup.ansible.tar -C /"
 
-- hosts: backup
-  become: true  
-  tasks:
-    - name: Delete zip file on backup server
-      command: "rm /mnt/sdb1/nextcloud.backup.ansible.tar"
+# - hosts: backup
+#   become: true  
+#   tasks:
+#     - name: Delete zip file on backup server
+#       command: "rm /mnt/sdb1/nextcloud.backup.ansible.tar"
 
 - hosts: backup
   become: true  
   tasks:
     - name: Star server
-      command: "docker -f /mnt/sdb1/nextcloud/docker-compose.yml compose up"
+      command: "docker compose up"
+      args:
+        chdir: /mnt/sdb1/nextcloud
