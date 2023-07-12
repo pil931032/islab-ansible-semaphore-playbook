@@ -48,6 +48,6 @@
   become: true  
   tasks:
     - name: Star server
-      command: "docker compose up"
+      command: "docker compose up -d"
       args:
         chdir: /mnt/sdb1/nextcloud
