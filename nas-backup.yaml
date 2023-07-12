@@ -9,8 +9,8 @@
   become: true
   tasks:
     - name: Transfer file from ServerA to ServerB
-      command: "scp islab@10.18.173.10:/mnt/sdb1/nextcloud.backup.ansible.tar /mnt/sdb1/nextcloud.backup.ansible.tar"
-      # command: "rsync -avzh islab@10.18.173.10:/mnt/sdb1/nextcloud.backup.ansible.tar /mnt/sdb1/nextcloud.backup.ansible.tar"
+      # command: "scp islab@10.18.173.10:/mnt/sdb1/nextcloud.backup.ansible.tar /mnt/sdb1/nextcloud.backup.ansible.tar"
+      command: "rsync -avzh islab@10.18.173.10:/mnt/sdb1/nextcloud.backup.ansible.tar /mnt/sdb1/nextcloud.backup.ansible.tar"
 
 - hosts: main
   become: true  
