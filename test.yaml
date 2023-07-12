@@ -4,6 +4,6 @@
   become: false
   gather_facts: no
   tasks:
-  - name: Print version
-  debug:
-    msg: "Ansible Version: {{ ansibleVersion.stdout }}"
+    - name: Print version
+      debug:
+        msg: "Ansible Version: {{ ansibleVersion.stdout }}"
