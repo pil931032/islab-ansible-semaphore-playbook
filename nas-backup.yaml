@@ -33,4 +33,4 @@
   become: true  
   tasks:
     - name: Star server
-      command: "docker stack deploy --compose-file /mnt/sdb1/nextcloud/docker-compose.yml nextcloud_deploy"
+      command: "docker compose -f /mnt/sdb1/nextcloud/docker-compose.yml "
