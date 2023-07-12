@@ -1,0 +1,8 @@
+---
+- hosts: all
+  become: true
+  
+  tasks:
+    - name: Zip the NextCloud File
+      chdir: /usr/lib/foobar
+      command: "tar cvf nextcloud.backup.ansible.tar /mnt/sdb1/nextcloud"
