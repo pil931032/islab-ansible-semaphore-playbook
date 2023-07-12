@@ -9,7 +9,7 @@
   become: true  
   tasks:
     - name: Try to stop server
-      command: "docker compose down -f /mnt/sdb1/nextcloud/docker-compose.yml "
+      command: "docker compose -f /mnt/sdb1/nextcloud/docker-compose.yml down "
       ignore_errors: true
       
 - hosts: backup
@@ -48,4 +48,4 @@
   become: true  
   tasks:
     - name: Star server
-      command: "docker compose -f /mnt/sdb1/nextcloud/docker-compose.yml "
+      command: "docker -f /mnt/sdb1/nextcloud/docker-compose.yml compose "
