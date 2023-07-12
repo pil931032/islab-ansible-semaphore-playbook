@@ -21,7 +21,7 @@
   become: true
   tasks:
     - name: Unzip file
-      command: "tar xvf /mnt/sdb1/nextcloud.backup.ansible.tar -C /mnt/sdb1/"
+      command: "tar xvf /mnt/sdb1/nextcloud.backup.ansible.tar -C /"
 
 - hosts: backup
   become: true  
