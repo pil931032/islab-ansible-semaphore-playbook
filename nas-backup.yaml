@@ -14,7 +14,7 @@
 - hosts: main
   become: true  
   tasks:
-    - name: Delete zip file
+    - name: Delete zip file on main server
       command: "rm /mnt/sdb1/nextcloud.backup.ansible.tar"
 
 - hosts: backup
