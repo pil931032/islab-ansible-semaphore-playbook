@@ -48,4 +48,4 @@
   become: true  
   tasks:
     - name: Star server
-      command: "docker -f /mnt/sdb1/nextcloud/docker-compose.yml compose "
+      command: "docker -f /mnt/sdb1/nextcloud/docker-compose.yml compose up"
