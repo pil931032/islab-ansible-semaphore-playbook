@@ -1,0 +1,11 @@
+---
+- hosts: all
+
+  become: true
+  tasks:
+    - name: Update apt and install fail2ban
+      apt:
+        update_cache: true
+        pkg:
+          - fail2ban
+        state: latest
