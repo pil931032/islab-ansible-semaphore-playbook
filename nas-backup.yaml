@@ -9,4 +9,4 @@
   become: true
   tasks:
     - name: Transfer file from ServerA to ServerB
-      command: "scp islab@main:/mnt/sdb1/nextcloud.backup.ansible.tar /mnt/sdb1/nextcloud.backup.ansible.tar"
+      command: "scp islab@{{ hostvars['main']['ansible_env'].SSH_CONNECTION.split(' ')[2] }}:/mnt/sdb1/nextcloud.backup.ansible.tar /mnt/sdb1/nextcloud.backup.ansible.tar"
