@@ -27,7 +27,7 @@
   tasks:
     - name: Transfer file from main server to backup server
       command: "rsync -avzh islab@10.18.173.10:/mnt/sdb1/nextcloud.backup.ansible.tar /mnt/sdb1/nextcloud.backup.ansible.tar"
-      timeout: 1800
+      timeout: 3600
 
 - hosts: main
   become: true  
