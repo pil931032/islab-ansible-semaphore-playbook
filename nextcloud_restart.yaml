@@ -16,3 +16,6 @@
       args:
         chdir: /mnt/sdb1/nextcloud
       ignore_errors: true
+
+    - name: Delete unused image
+      command: "docker image prune -f"
