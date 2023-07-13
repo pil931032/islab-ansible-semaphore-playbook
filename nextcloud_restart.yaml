@@ -1,0 +1,7 @@
+- hosts: main
+  become: true  
+  tasks:
+    - name: Restart server
+      command: "docker compose restart"
+      args:
+        chdir: /mnt/sdb1/nextcloud
