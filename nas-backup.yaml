@@ -30,11 +30,11 @@
       command: "scp -C islab@10.18.173.10:/mnt/sdb1/nextcloud.backup.ansible.tar /mnt/sdb1/nextcloud.backup.ansible.tar"
       timeout: 18000
 
-- hosts: main
-  become: true  
-  tasks:
-    - name: Delete zip file on main server
-      command: "rm /mnt/sdb1/nextcloud.backup.ansible.tar"
+# - hosts: main
+#   become: true  
+#   tasks:
+#     - name: Delete zip file on main server
+#       command: "rm /mnt/sdb1/nextcloud.backup.ansible.tar"
 
 - hosts: backup
   become: true
