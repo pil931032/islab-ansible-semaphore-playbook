@@ -26,7 +26,8 @@
   become: true
   tasks:
     - name: Transfer file from main server to backup server
-      command: "rsync -avzh --info=progress2 islab@10.18.173.10:/mnt/sdb1/nextcloud.backup.ansible.tar /mnt/sdb1/nextcloud.backup.ansible.tar"
+      # command: "rsync -avzh --info=progress2 islab@10.18.173.10:/mnt/sdb1/nextcloud.backup.ansible.tar /mnt/sdb1/nextcloud.backup.ansible.tar"
+      command: "scp -C islab@10.18.173.10:/mnt/sdb1/nextcloud.backup.ansible.tar /mnt/sdb1/nextcloud.backup.ansible.tar"
       timeout: 3600
 
 - hosts: main
