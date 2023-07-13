@@ -1,7 +1,14 @@
 - hosts: main
   become: true  
   tasks:
-    - name: Restart server
-      command: "docker compose restart"
+  
+    - name: Stop server
+      command: "docker compose down"
       args:
         chdir: /mnt/sdb1/nextcloud
+        
+    - name: Start server
+      command: "docker compose up -d"
+      args:
+        chdir: /mnt/sdb1/nextcloud
+      ignore_errors: true
