@@ -42,11 +42,11 @@
     - name: Unzip file
       command: "tar xvf /mnt/sdb1/nextcloud.backup.ansible.tar -C /"
 
-- hosts: backup
-  become: true  
-  tasks:
-    - name: Delete zip file on backup server
-      command: "rm /mnt/sdb1/nextcloud.backup.ansible.tar"
+# - hosts: backup
+#   become: true  
+#   tasks:
+#     - name: Delete zip file on backup server
+#       command: "rm /mnt/sdb1/nextcloud.backup.ansible.tar"
 
 - hosts: backup
   become: true  
