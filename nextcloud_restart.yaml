@@ -1,14 +1,18 @@
 - hosts: all
   become: true  
   tasks:
-  
+    - name: Docker pull
+      command: "docker compose pull"
+      args:
+        chdir: /mnt/sdb1/nextcloud
+        
     - name: Stop server
       command: "docker compose down"
       args:
         chdir: /mnt/sdb1/nextcloud
         
     - name: Start server
-      command: "docker compose up -d"
+      command: "docker compose up --force-recreate --build -d"
       args:
         chdir: /mnt/sdb1/nextcloud
       ignore_errors: true
