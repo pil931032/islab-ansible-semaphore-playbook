@@ -4,7 +4,7 @@
   become: true
   tasks:
     - name: update apt packages
-      apt:
-        upgrade: yes
+      apt:   
         clean: yes
         update_cache: yes
+        upgrade: yes
